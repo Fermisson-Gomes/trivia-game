@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { saveUser } from '../localStorage';
-import { createUserState } from '../Redux/actions';
+import { createUserState } from '../redux/actions';
 import '../Css/Login.css';
 
 class Login extends React.Component {
