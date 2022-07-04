@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import {
   createApiAction,
@@ -8,8 +9,8 @@ import {
   createCountAction,
 } from '../redux/actions';
 import Timer from '../components/Timer';
-import '../Css/Game.css';
 import { readTimer, readUser } from '../localStorage';
+import '../Css/Game.css';
 
 class Game extends React.Component {
   state = {
@@ -36,7 +37,6 @@ class Game extends React.Component {
     const {
       requestTokenApi: { token },
       filterApi,
-      history,
     } = this.props;
     const { index } = this.state;
     const requestApi = await fetch(
@@ -45,10 +45,6 @@ class Game extends React.Component {
     const dataApi = await requestApi.json();
     filterApi(dataApi.results[index]);
     this.setState(({ index: i }) => ({ index: i + 1 }));
-    const n5 = 5;
-    if (index === n5) {
-      history.push('/feedback');
-    }
   };
 
   clickAnswers = ({ target: { textContent } }) => {
@@ -100,11 +96,14 @@ class Game extends React.Component {
 
   render() {
     const { finalApi, hasAnswer } = this.props;
+    const { index } = this.state;
     const tok = JSON.stringify(readUser());
     const n63 = 63;
     const n67 = 67;
+    const n6 = 6;
     return (
       <>
+        {index === n6 && <Redirect to="/feedback" />}
         <Header />
         {tok.length <= n63 || tok.length >= n67 ? (
           this.errorToken()
@@ -113,6 +112,7 @@ class Game extends React.Component {
             <div className="game">
               {finalApi && (
                 <div>
+                  <p>{index}</p>
                   <h1 data-testid="question-category" className="titleGame">
                     {finalApi.category}
                   </h1>
