@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import { resetCount } from '../Redux/actions';
+import { resetCount } from '../redux/actions';
 
 class Feedback extends React.Component {
   redirectLogin = () => {

@@ -42,9 +42,7 @@ describe('Testando a tela de Login', () => {
     userEvent.type(email, 'user@user.com');
     expect(playButton.disabled).toBeFalsy();
 
-    userEvent.click(playButton)
-    await waitFor(() => {
-      expect(history.location.pathname).toBe('/game');
-    });
+    userEvent.click(playButton);
+    await waitFor(() => expect(history.location.pathname).toBe('/game'));
   });
 });

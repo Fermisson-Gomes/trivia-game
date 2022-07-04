@@ -6,7 +6,7 @@ import {
   createApiAction,
   createAnswerAction,
   createCountAction,
-} from '../Redux/actions';
+} from '../redux/actions';
 import Timer from '../components/Timer';
 import '../Css/Game.css';
 import { readTimer, readUser } from '../localStorage';

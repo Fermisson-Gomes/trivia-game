@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
-import { resetCount } from '../Redux/actions';
+import { resetCount } from '../redux/actions';
 
 class Ranking extends React.Component {
   state = {

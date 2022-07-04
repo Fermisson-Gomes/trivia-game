@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createDisableAction, createAnswerAction } from '../Redux/actions';
+import { createDisableAction, createAnswerAction } from '../redux/actions';
 import { saveTimer } from '../localStorage';
 import '../Css/Game.css';
 
@@ -20,7 +20,6 @@ class Timer extends React.Component {
 
   componentWillUnmount() {
     this.createTimer();
-    this.updateTimer();
   }
 
   createTimer = () => {
